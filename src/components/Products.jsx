@@ -1,108 +1,48 @@
+import Card from "./Card";
 export default function Products() {
+    
+    const [loading,setLoading]=useState(false);
+    const [error,setError]=useState('');
+    const handleLogin = (e)=>{
+        e.preventDefault();
+        setLoading(true)
+        handleTryCatch(
+          async () => {
+           
+             const response = await fetch(urlApi.user.login,{
+               method:"POST",
+               headers: { 'Content-Type': 'application/json' },
+               body:JSON.stringify(payload),
+              
+               
+             })
+             console.log(response);
+             const data = await response.json();
+             console.log(data);
+             
+             if(response.status>300&&!response.ok){
+               setLoading(false)
+               setError(data.message)
+              throw new Error()
+             }
+             if(response.status<300&&response.ok){
+              setLoading(false)
+              setError('')
+             login(data.accessToken);
+             }
+             
+           },
+           (e) => {
+             console.log(e);
+           }
+         );
+      }
   return (
     <section className="products">
         <div className="container">
             <div className="content">
-                <div className="card">
-                    <div className="image-product">
-                        <img src="https://images.pexels.com/photos/90946/pexels-photo-90946.jpeg?auto=compress&cs=tinysrgb&w=600" alt="d" />
-                    </div>
-                    <div className="info-product">
-                        <h4>name</h4>
-                        <p>price</p>
-                        <button>Add Cart</button>
-                    </div>
-                </div>
-                <div className="card">
-                    <div className="image-product">
-                        <img src="https://images.pexels.com/photos/90946/pexels-photo-90946.jpeg?auto=compress&cs=tinysrgb&w=600" alt="d" />
-                    </div>
-                    <div className="info-product">
-                        <h4>name</h4>
-                        <p>price</p>
-                        <button>Add Cart</button>
-                    </div>
-                </div>
-                <div className="card">
-                    <div className="image-product">
-                        <img src="https://images.pexels.com/photos/90946/pexels-photo-90946.jpeg?auto=compress&cs=tinysrgb&w=600" alt="d" />
-                    </div>
-                    <div className="info-product">
-                        <h4>name</h4>
-                        <p>price</p>
-                        <button>Add Cart</button>
-                    </div>
-                </div>
-                <div className="card">
-                    <div className="image-product">
-                        <img src="https://images.pexels.com/photos/90946/pexels-photo-90946.jpeg?auto=compress&cs=tinysrgb&w=600" alt="d" />
-                    </div>
-                    <div className="info-product">
-                        <h4>name</h4>
-                        <p>price</p>
-                        <button>Add Cart</button>
-                    </div>
-                </div>
-                <div className="card">
-                    <div className="image-product">
-                        <img src="https://images.pexels.com/photos/90946/pexels-photo-90946.jpeg?auto=compress&cs=tinysrgb&w=600" alt="d" />
-                    </div>
-                    <div className="info-product">
-                        <h4>name</h4>
-                        <p>price</p>
-                        <button>Add Cart</button>
-                    </div>
-                </div>
-                <div className="card">
-                    <div className="image-product">
-                        <img src="https://images.pexels.com/photos/90946/pexels-photo-90946.jpeg?auto=compress&cs=tinysrgb&w=600" alt="d" />
-                    </div>
-                    <div className="info-product">
-                        <h4>name</h4>
-                        <p>price</p>
-                        <button>Add Cart</button>
-                    </div>
-                </div>
-                <div className="card">
-                    <div className="image-product">
-                        <img src="https://images.pexels.com/photos/90946/pexels-photo-90946.jpeg?auto=compress&cs=tinysrgb&w=600" alt="d" />
-                    </div>
-                    <div className="info-product">
-                        <h4>name</h4>
-                        <p>price</p>
-                        <button>Add Cart</button>
-                    </div>
-                </div>
-                <div className="card">
-                    <div className="image-product">
-                        <img src="https://images.pexels.com/photos/90946/pexels-photo-90946.jpeg?auto=compress&cs=tinysrgb&w=600" alt="d" />
-                    </div>
-                    <div className="info-product">
-                        <h4>name</h4>
-                        <p>price</p>
-                        <button>Add Cart</button>
-                    </div>
-                </div>
-                <div className="card">
-                    <div className="image-product">
-                        <img src="https://images.pexels.com/photos/90946/pexels-photo-90946.jpeg?auto=compress&cs=tinysrgb&w=600" alt="d" />
-                    </div>
-                    <div className="info-product">
-                        <h4>name</h4>
-                        <p>price</p>
-                        <button>Add Cart</button>
-                    </div>
-                </div>
-                <div className="card">
-                    <div className="image-product">
-                        <img src="https://images.pexels.com/photos/90946/pexels-photo-90946.jpeg?auto=compress&cs=tinysrgb&w=600" alt="d" />
-                    </div>
-                    <div className="info-product">
-                        <h4>name</h4>
-                        <p>price</p>
-                        <button>Add Cart</button>
-                    </div>
-                </div>
+                
+        <Card/>
             </div>
         </div>
     </section>

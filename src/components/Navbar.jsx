@@ -1,5 +1,8 @@
 import { Link } from "react-router";
+import { useUser } from "../provider/ProviderUser";
+import { logout } from "../utils/athu";
 export default function Navbar() {
+  const {user}=useUser();
   return (
     <header>
       <nav className="container">
@@ -11,18 +14,22 @@ export default function Navbar() {
             <li>
               <Link to={"/"}>Home</Link>
             </li>
-            <li>
+           {!Object.keys(user).length &&  <li>
               <Link to={'Sign-in'}>Sign in</Link>
-            </li>
-            <li>
-              <button>Log out</button>
+            </li>}
+           {Object.keys(user).length ? (
+            <>
+             <li>
+              <button onClick={logout}>Log out</button>
             </li>
             <li>
               <Link to={'/Cart'} >Cart</Link >
             </li>
             <li>
-              <span>welcome,x</span>
+              <span>welcome,{user.firstName}</span>
             </li>
+            </>
+           ):''}
           </ul>
         </div>
       </nav>
