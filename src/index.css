@@ -1,0 +1,236 @@
+:root {
+  --main-color: #6600eb;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+ul {
+  list-style: none;
+}
+button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+.container {
+  max-width: 1920px;
+  padding-left: 3%;
+  padding-right: 3%;
+}
+header {
+  background-color: var(--main-color);
+  color: white;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  left: 0;
+  right: 0;
+}
+header nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+}
+header nav ul {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+header nav ul a,
+header nav ul button {
+  text-decoration: none;
+  color: white;
+}
+.products {
+  background-color: white;
+  padding: 20px 0;
+}
+.products .content {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+.products .content .card {
+  box-shadow: 0px 0px 8px 0px #656464bd;
+  border-radius: 8px;
+  overflow: hidden;
+  padding: 12px 16px;
+}
+.products .content .image-product {
+  width: 100%;
+}
+.products .content .image-product img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+}
+.products .content .info-product {
+  text-align: center;
+}
+.products .content .info-product p {
+  color: #36b901;
+}
+.products .content .info-product button {
+  padding: 8px 12px;
+  border-radius: 4px;
+  color: white;
+  background-color: var(--main-color);
+  margin-top: 12px;
+}
+.cart {
+  width: 50%;
+  margin: 20px auto;
+  box-shadow: 0px 0px 8px 0px #656464bd;
+  border-radius: 8px;
+  overflow: hidden;
+  padding: 12px 16px;
+}
+@media (max-width: 992px) {
+  .cart {
+    width: 80%;
+  }
+}
+@media (max-width: 570px) {
+  .cart {
+    width: 90%;
+  }
+}
+.cart .content h2 {
+  text-align: center;
+  font-size: 36px;
+}
+.cart .card-cart {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 8px;
+  margin-top: 12px;
+}
+.cart .card-cart:not(:last-child) {
+  border-bottom: 1px solid black;
+}
+.cart .info-product-cart {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.cart .info-product-cart .image-product-cart {
+  width: 60px;
+}
+.cart .info-product-cart .image-product-cart img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+}
+.cart .info-product-cart .name-product-cart {
+  font-weight: 700;
+  font-size: 20px;
+}
+.cart .info-product-cart .price-product-cart {
+  font-weight: 400;
+  font-size: 14px;
+  color: #36b901;
+}
+.cart .card-cart .action-cart {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.cart .card-cart .action-cart .count {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.cart .card-cart .action-cart .count p {
+  border-radius: 8px;
+  font-size: 14px;
+  border: 1px solid;
+  padding: 0 12px;
+}
+.cart .card-cart .action-cart .count button {
+  width: 20px;
+  height: auto;
+  aspect-ratio: 1;
+  background-color: var(--main-color);
+  color: white;
+  border-radius: 50%;
+}
+.cart .card-cart .action-cart .remove-cart {
+  background-color: red;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 4px;
+}
+.cart .all {
+  text-align: end;
+  margin-top: 20px;
+}
+.cart .all .total span {
+  font-weight: 700;
+  font-size: 20px;
+}
+.cart .all .remove-all-cart {
+  background-color: red;
+  color: white;
+  border-radius: 4px;
+  padding: 8px 16px;
+}
+.sign-in {
+  width: 40%;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: auto;
+  box-shadow: 0px 0px 8px 0px #656464bd;
+    border-radius: 8px;
+    overflow: hidden;
+    padding: 12px 16px;
+    padding: 20px;
+    text-align: center;
+}
+@media (max-width: 992px) {
+  .sign-in {
+    width: 60%;
+  }
+}
+@media (max-width: 570px) {
+  .sign-in {
+    width: 80%;
+  }
+}
+.sign-in h2{
+    text-align: center;
+    margin-bottom: 16px;
+}
+.sign-in label {
+  color: rgb(73, 73, 73);
+  margin-bottom: 16px;
+  display: block;
+  text-align: start;
+}
+.sign-in input {
+  width: 100%;
+  padding: 8px 12px;
+  outline: none;
+  border: 1px solid #bebebeb7;
+  border-radius: 4px;
+}
+.sign-in button{
+margin: auto;
+padding: 8px 12px;
+background-color: var(--main-color);
+color: white;
+border-radius: 4px;
+}
+
+button:hover{
+    background-color: #671ec7;
+}
+.remove-all-cart:hover ,.remove-cart:hover{
+    background-color: rgb(221, 28, 28);
+}
