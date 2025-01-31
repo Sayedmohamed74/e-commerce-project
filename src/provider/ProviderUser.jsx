@@ -18,7 +18,7 @@ export default function ProviderUser({ children }) {
         },
       });
       const data = await response.json();
-      console.log(data);
+
       if (response.status > 300 && !response.ok) {
         
         logout();

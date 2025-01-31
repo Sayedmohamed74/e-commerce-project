@@ -17,9 +17,9 @@ export default function Products() {
             method: "GET",
           }
         );
-        console.log(response);
+       
         const data = await response.json();
-        console.log(data);
+        
 
         if (response.status > 300 && !response.ok) {
           setLoading(false);
@@ -37,7 +37,7 @@ export default function Products() {
       },
       (e) => {
         setData({ products: [], total: 0 });
-        console.log(e);
+
       }
     );
   };
@@ -53,7 +53,7 @@ export default function Products() {
             <Card data={data} />
           ))}
         </div>
-        {product.products.length >= 10 ? (
+        {product.limit === 10 ? (
           <div
             style={{
               textAlign: "center",

@@ -26,9 +26,9 @@ const handleLogin = (e)=>{
         
          
        })
-       console.log(response);
+   
        const data = await response.json();
-       console.log(data);
+     
        
        if(response.status>300&&!response.ok){
          setLoading(false)
@@ -43,7 +43,7 @@ const handleLogin = (e)=>{
        
      },
      (e) => {
-       console.log(e);
+
      }
    );
 }

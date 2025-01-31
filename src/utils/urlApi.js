@@ -5,7 +5,13 @@ const urlApi={
     user:{
         login:basedUrlApi+'auth/login',
         getUser:basedUrlApi+'auth/me'
+    },
+    cart:{
+        addCart:basedUrlApi+'carts/add',
+        getCart:(id)=>basedUrlApi+`carts/user/${id}`,
+        editAndDeleteCart:(id)=>basedUrlApi+`carts/${id}`
     }
+
 }
 
 function handleTryCatch(codeTry,codeCatch){
